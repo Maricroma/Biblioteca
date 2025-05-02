@@ -1,25 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 
 namespace Biblioteca
 {
     public class Lector
     {
-        public string Nombre { get; }
-        public string Dni { get; }
+        private string nombre;
+        private string dni;
         private List<Libro> prestamos;
+        private const int MAX_PRESTAMOS = 3;
 
         public Lector(string nombre, string dni)
         {
-            Nombre = nombre;
-            Dni = dni;
+            this.nombre = nombre;
+            this.dni = dni;
             prestamos = new List<Libro>();
         }
 
+        public string Dni => dni;
+        public string Nombre => nombre;
+
         public bool puedePedirPrestamo()
         {
-            return prestamos.Count < 3;
+            return prestamos.Count < MAX_PRESTAMOS;
         }
 
         public bool agregarPrestamo(Libro libro)
