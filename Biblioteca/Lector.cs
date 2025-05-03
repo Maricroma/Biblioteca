@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Text;
 
 namespace Biblioteca
 {
@@ -22,14 +20,14 @@ namespace Biblioteca
         public string Dni => dni;
         public string Nombre => nombre;
 
-        public bool puedePedirPrestamo()
+        public bool PuedePedirPrestamo()
         {
             return prestamos.Count < MAX_PRESTAMOS;
         }
 
-        public bool agregarPrestamo(Libro libro)
+        public bool AgregarPrestamo(Libro libro)
         {
-            if (puedePedirPrestamo())
+            if (PuedePedirPrestamo())
             {
                 prestamos.Add(libro);
                 return true;
@@ -37,7 +35,7 @@ namespace Biblioteca
             return false;
         }
 
-        public void mostrarPrestamos()
+        public void MostrarPrestamos()
         {
             Console.WriteLine($"Préstamos de {Nombre}:");
             if (prestamos.Count == 0)

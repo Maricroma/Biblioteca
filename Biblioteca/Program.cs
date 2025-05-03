@@ -8,21 +8,21 @@ namespace Biblioteca
         {
             Biblioteca biblioteca = new Biblioteca();
             //cargarLibros(10);
-            biblioteca.agregarLibro("El Principito", "Antoine de Saint-Exupéry", "Reynal & Hitchcock");
-            biblioteca.agregarLibro("Cien años de soledad", "Gabriel García Márquez", "Editorial Sudamericana");
-            biblioteca.agregarLibro("1984", "George Orwell", "Secker & Warburg");
-            biblioteca.agregarLibro("El túnel", "Ernesto Sabato", "Editorial Sudamericana");
-            biblioteca.agregarLibro("Rayuela", "Julio Cortázar", "Editorial Sudamericana");
-            biblioteca.agregarLibro("El Aleph", "Jorge Luis Borges", "Editorial Losada");
-            biblioteca.listarLibros();
+            biblioteca.AgregarLibro("El Principito", "Antoine de Saint-Exupéry", "Reynal & Hitchcock");
+            biblioteca.AgregarLibro("Cien años de soledad", "Gabriel García Márquez", "Editorial Sudamericana");
+            biblioteca.AgregarLibro("1984", "George Orwell", "Secker & Warburg");
+            biblioteca.AgregarLibro("El túnel", "Ernesto Sabato", "Editorial Sudamericana");
+            biblioteca.AgregarLibro("Rayuela", "Julio Cortázar", "Editorial Sudamericana");
+            biblioteca.AgregarLibro("El Aleph", "Jorge Luis Borges", "Editorial Losada");
+            biblioteca.ListarLibros();
             //biblioteca.eliminarLibro("El Principito");
             //biblioteca.listarLibros();
 
-            biblioteca.altaLector("Juan Pérez", "12345678");
-            Console.WriteLine(biblioteca.prestarLibro("1234567", "El Principito"));
-            Console.WriteLine(biblioteca.prestarLibro("12345678", "Odisea"));
-            Console.WriteLine(biblioteca.prestarLibro("12345678", "El Principito"));
-            biblioteca.listarLibros();
+            biblioteca.AltaLector("Juan Pérez", "12345678");
+            Console.WriteLine(biblioteca.PrestarLibro("1234567", "El Principito"));
+            Console.WriteLine(biblioteca.PrestarLibro("12345678", "Odisea"));
+            Console.WriteLine(biblioteca.PrestarLibro("12345678", "El Principito"));
+            biblioteca.ListarLibros();
 
             //void cargarLibros(int cantidad)
             //{

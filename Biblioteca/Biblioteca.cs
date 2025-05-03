@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Biblioteca
 {
     public class Biblioteca
     {
-        private List<Libro> libros;
-        private List<Lector> lectores;
+        private readonly List<Libro> libros;
+        private readonly List<Lector> lectores;
 
         public Biblioteca()
         {
@@ -15,7 +14,7 @@ namespace Biblioteca
             this.lectores = new List<Lector>();
         }
 
-        public Libro buscarLibro(string titulo)
+        public Libro BuscarLibro(string titulo)
         {
             foreach (var libro in libros)
             {
@@ -27,9 +26,9 @@ namespace Biblioteca
             return null;
         }
 
-        public bool agregarLibro(string titulo, string autor, string editorial)
+        public bool AgregarLibro(string titulo, string autor, string editorial)
         {
-            if (buscarLibro(titulo) == null)
+            if (BuscarLibro(titulo) == null)
             {
                 libros.Add(new Libro(titulo, autor, editorial));
                 return true;
@@ -37,9 +36,9 @@ namespace Biblioteca
             return false;
         }
 
-        public bool eliminarLibro(string titulo)
+        public bool EliminarLibro(string titulo)
         {
-            Libro libroAEliminar = buscarLibro(titulo);
+            Libro libroAEliminar = BuscarLibro(titulo);
             if (libroAEliminar != null)
             {
                 libros.Remove(libroAEliminar);
@@ -48,7 +47,7 @@ namespace Biblioteca
             return false;
         }
 
-        public void listarLibros()
+        public void ListarLibros()
         {
             if (libros.Count == 0)
             {
@@ -63,9 +62,9 @@ namespace Biblioteca
             }
         }
 
-        public bool altaLector(string nombre, string dni)
+        public bool AltaLector(string nombre, string dni)
         {
-            if (buscarLector(dni) == null)
+            if (BuscarLector(dni) == null)
             {
                 lectores.Add(new Lector(nombre, dni));
                 return true;
@@ -73,32 +72,32 @@ namespace Biblioteca
             return false;
         }
 
-        public Lector buscarLector(string dni)
+        public Lector BuscarLector(string dni)
         {
             return lectores.Find(l => l.Dni == dni);
         }
 
-        public String prestarLibro(string dni, string titulo)
+        public String PrestarLibro(string dni, string titulo)
         {
-            Lector lector = buscarLector(dni);
+            Lector lector = BuscarLector(dni);
             if (lector == null)
             {
                 return "LECTOR INEXISTENTE";
             }
 
-            Libro libro = buscarLibro(titulo);
+            Libro libro = BuscarLibro(titulo);
             if (libro == null)
             {
                 return "LIBRO INEXISTENTE";
             }
 
-            if (!lector.puedePedirPrestamo())
+            if (!lector.PuedePedirPrestamo())
             {
                 return "TOPE DE PRÉSTAMO ALCANZADO";
             }
 
             // Se presta el libro
-            lector.agregarPrestamo(libro);
+            lector.AgregarPrestamo(libro);
             libros.Remove(libro);
 
             return "PRÉSTAMO EXITOSO";
