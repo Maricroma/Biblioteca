@@ -19,6 +19,7 @@ namespace Biblioteca
 
         public string Dni => dni;
         public string Nombre => nombre;
+        public List<Libro> Prestamos => prestamos;
 
         public bool PuedePedirPrestamo()
         {
